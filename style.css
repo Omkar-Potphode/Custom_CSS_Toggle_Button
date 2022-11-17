@@ -1,0 +1,56 @@
+:root{
+    --body-bg: #F2AA4C;
+    --white-col: #fff;
+    --dark-bg: #18181A;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--body-bg);
+    transition: all 0.3s ease-in-out;
+}
+
+
+body.dark{
+    background: var(--dark-bg);
+}
+
+
+.Toggle{
+    height: 12px;
+    width: 175px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 25px;
+    background: var(--white-col);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.Toggle::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60px;
+    width: 60px;
+    background: var(--body-bg);
+    border: 10px solid var(--white-col);
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55 );
+}
+
+.Toggle.active::before{
+    left: calc(100% - 70px);
+    background: var(--body-bg);
+    border-color: var(--body-bg);
+}
